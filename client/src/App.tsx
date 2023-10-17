@@ -1,4 +1,4 @@
-import "./App.css";
+import * as Table from "./components/Table";
 import useUsersQuery from "./hooks/useUsersQuery";
 
 function App() {
@@ -10,33 +10,22 @@ function App() {
 
   return (
     <div style={{ background: "#333", color: "#FFF", padding: "20px" }}>
-      <table
-        style={{
-          width: "100%",
-          borderCollapse: "collapse",
-          borderColor: "#666",
-          color: "#FFF",
-        }}
-      >
-        <thead>
-          <tr>
-            <th style={{ border: "1px solid #666", padding: "10px" }}>ID</th>
-            <th style={{ border: "1px solid #666", padding: "10px" }}>Name</th>
-          </tr>
-        </thead>
-        <tbody>
+      <Table.Wrapper>
+        <Table.Head>
+          <Table.Row>
+            <Table.Label>ID</Table.Label>
+            <Table.Label>Name</Table.Label>
+          </Table.Row>
+        </Table.Head>
+        <Table.Body>
           {users.map(({ id, name }) => (
-            <tr key={id}>
-              <td style={{ border: "1px solid #666", padding: "10px" }}>
-                {id}
-              </td>
-              <td style={{ border: "1px solid #666", padding: "10px" }}>
-                {name}
-              </td>
-            </tr>
+            <Table.Row key={id}>
+              <Table.Cell>{id}</Table.Cell>
+              <Table.Cell>{name}</Table.Cell>
+            </Table.Row>
           ))}
-        </tbody>
-      </table>
+        </Table.Body>
+      </Table.Wrapper>
     </div>
   );
 }
