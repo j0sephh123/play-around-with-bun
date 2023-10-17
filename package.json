@@ -1,0 +1,16 @@
+{
+  "name": "app",
+  "version": "1.0.50",
+  "scripts": {
+    "server": "bun run --watch server/index.ts",
+    "client": "cd client && bun run dev"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "^0.7.1",
+    "elysia": "latest"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "module": "server/index.js"
+}
